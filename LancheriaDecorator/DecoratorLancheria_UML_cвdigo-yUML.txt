@@ -1,0 +1,9 @@
+[«interface»\nIEntrega| __custoEntrega:double__|+gerarNotaEntrega(end:String,nome:String,pedido:List\<Lanche\>):String]^-.-[_Lanche_|-descricao:String;-custo:double|+«const»Lanche(desc:String,c:double);+getDescricao():String;+setDescricao(desc:String):void;+getCusto():double;+setCusto(custo:double):void;+toString():String;+gerarNotaEntrega(end:String,nome:String,pedido:List\<Lanche\>):String]^-[Bauru|__custo:double__|+«const»Bauru()]
+
+[_Lanche_]^-[CachorroQuente|__custo:double__|+«const»CachorroQuente()]
+[_Lanche_]^-[_Complemento_|lanche:Lanche|+«const»Complemento(desc:String,l:Lanche,custoCompl:double);+getLanche():Lanche]
+[_Lanche_]<-lanche[_Complemento_]
+
+[_Complemento_]^-[Ovo|__custo:double__|+«const»Ovo(l:Lanche)]
+[_Complemento_]^-[BatataPalha|__custo:double__|+«const»BatataPalha(l:Lanche)]
+[_Complemento_]^-[Calabresa|__custo:double__|+«const»Calabresa(l:Lanche)]
